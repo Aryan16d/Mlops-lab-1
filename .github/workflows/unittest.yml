@@ -3,7 +3,7 @@ name: Python Unittests
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -24,7 +24,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run unittests
-        run: python -m unittest test_unittest
+        run: python -m unittest discover -s test -p "test_unittest.py"
 
       - name: Notify on success
         if: success()
